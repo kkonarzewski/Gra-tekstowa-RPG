@@ -7,3 +7,6 @@ Kilka informacji o projekcie:
 - Sposoby uruchomienia:
   - Pobranie wszystkich plików '.py' i uruchomienie programu 'gra.py' np. poprzez komendę 'python gra.py' (Wymagane jest pobranie pythona na komputerze)
   - Pobranie skompresowanego folderu 'gra' i uruchomienie pliku 'gra.exe'
+
+Sterowanie:
+-Daną opcję wybiera się poprzez naciśnięcie odpowiedniej cyfry, a następnie wciśnięcie ENTER
