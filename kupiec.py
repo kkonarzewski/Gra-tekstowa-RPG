@@ -1,4 +1,5 @@
 import random
+import smierc
 
 
 def kupiec(gracz):
@@ -10,11 +11,11 @@ def kupiec(gracz):
                       "2. Nie\n")
         if opcja.isdigit() and int(opcja) == 1:
             while 1:
-                opcja1 = input("Kupiec proponuje Ci kilka przedmiotów:\n"
+                opcja1 = input("\nKupiec proponuje Ci kilka przedmiotów:\n"
                                "1. Sztylet (+1 obrażeń) - 2 monety\n"
                                "2. Miecz (+2 obrażenia) - 4 monety\n"
                                "3. Topór (+3 obrażenia) - 5 monet\n"
-                               "4. Fiolka życia (+2 punkty życia) - 3 monety\n"
+                               "4. Fiolka życia (+2 punkty życia, +1 punkt maksymalnego życia) - 3 monety\n"
                                "5. Tajemnicza fiolka - 1 moneta\n")
                 if opcja1.isdigit() and int(opcja1) == 1:
                     if gracz.pieniadze >= 2:
@@ -44,6 +45,7 @@ def kupiec(gracz):
                     if gracz.pieniadze >= 3:
                         gracz.pieniadze -= 3
                         gracz.hp += 2
+                        gracz.max_hp += 1
                         print("Zakupiłeś fiolkę życia")
                         return
                     else:
@@ -55,21 +57,24 @@ def kupiec(gracz):
                         if wynik == 1:
                             gracz.hp -= 2
                             print("Zakupiłeś tajemniczą fiolkę - tracisz 2 punkty życia")
+                            smierc.czy_smierc(gracz)
                         elif wynik == 2:
                             gracz.hp -= 1
                             print("Zakupiłeś tajemniczą fiolkę - tracisz 1 punkt życia")
+                            smierc.czy_smierc(gracz)
                         elif wynik == 3:
                             gracz.hp += 1
                             print("Zakupiłeś tajemniczą fiolkę - zyskujesz 1 punkt życia")
                         elif wynik == 4:
-                            gracz.atak += 1
-                            print("Zakupiłeś tajemniczą fiolkę - zyskujesz 1 punkt obrażeń")
+                            gracz.max_hp += 1
+                            gracz.hp += 1
+                            print("Zakupiłeś tajemniczą fiolkę - zyskujesz 1 punkt maksymalnego życia")
                         elif wynik == 5:
                             gracz.hp += 2
                             print("Zakupiłeś tajemniczą fiolkę - zyskujesz 2 punkty życia")
                         elif wynik == 6:
-                            gracz.atak += 2
-                            print("Zakupiłeś tajemniczą fiolkę - zyskujesz 2 punkty obrażeń")
+                            gracz.atak += 1
+                            print("Zakupiłeś tajemniczą fiolkę - zyskujesz 1 punkt obrażeń")
                         return
                     else:
                         print("Masz niewystarczającą ilość monet na zakup tego przedmiotu")

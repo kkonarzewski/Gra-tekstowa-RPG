@@ -9,3 +9,4 @@ class Bohater:
         self.bron = bron
         self.exp = exp
         self.poziom = poziom
+        self.max_hp = hp

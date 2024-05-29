@@ -1,4 +1,5 @@
 import random
+import smierc
 
 
 def skrzynia(gracz):
@@ -22,6 +23,7 @@ def skrzynia(gracz):
             else:
                 print("To była skrzynia pułapka! Tracisz 1 punkt życia")
                 gracz.hp -= 1
+                smierc.czy_smierc(gracz)
                 return
         elif opcja.isdigit() and int(opcja) == 2:
             print("Nie chcesz ryzykować i idziesz dalej")
